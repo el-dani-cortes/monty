@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * get_monty_code - Gets the correct function based on the opcode cmd.
+ * get_opcode - Calls for the function by opcode read.
  * @head: Pointer head of double linked list (stack).
  * @monty_command: Monty Command read from bytecode file.
  * @line_number:Number of line read from bytecode file.
@@ -34,7 +34,7 @@ void get_opcode(stack_t **head, char *monty_command, unsigned int line_number)
 	}
 	if (command[i].opcode == NULL)
 	{
-		fprintf(stderr,"L%d: unknown instruction %s\n", line_number, monty_command);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, monty_command);
 		exit(EXIT_FAILURE);
 	}
 }
