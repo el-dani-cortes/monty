@@ -95,6 +95,15 @@ void rotl_stack(stack_t **stack, unsigned int line_number);
 /*Rotates the stack to the bottom*/
 void rotr_stack(stack_t **stack, unsigned int line_number);
 
+/*Add a node at the end*/
+void queue_format(stack_t **stack, unsigned int line_number);
+
+/*Function to switch from stack to queue*/
+void format_queue(stack_t **stack, unsigned int line_number);
+
+/*Function to switch from queue to stack*/
+void format_stack(stack_t **stack, unsigned int line_number);
+
 /**
  * struct variable_s - Variables to free the stack when a error happen.
  * @buffer: Buffer save with the get.
@@ -106,6 +115,7 @@ typedef struct variable_s
 {
 	char *buffer;
 	FILE *fd;
+	char *format;
 } variable_t;
 
 /*Global variable*/
