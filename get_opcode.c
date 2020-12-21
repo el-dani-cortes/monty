@@ -22,6 +22,7 @@ void get_opcode(stack_t **head, char *monty_command, unsigned int line_number)
 		{"div", div_stack},
 		{"mod", mod_stack},
 		{"pchar", pchar_stack},
+		{"pstr", pstr_stack},
 		{NULL, NULL}
 	};
 
