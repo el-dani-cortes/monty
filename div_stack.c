@@ -21,6 +21,7 @@ void div_stack(stack_t **stack, unsigned int line_number)
 		else
 		{
 			fprintf(stderr, "L%d: division by zero\n", line_number);
+			free_all(stack, vars.buffer, vars.fd);
 			exit(EXIT_FAILURE);
 		}
 		(*stack)->prev = NULL;
@@ -29,6 +30,7 @@ void div_stack(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_all(stack, vars.buffer, vars.fd);
 		exit(EXIT_FAILURE);
 	}
 }
