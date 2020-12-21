@@ -11,6 +11,8 @@ void get_opcode(stack_t **head, char *monty_command, unsigned int line_number)
 {
 	int i;
 	instruction_t command[] = {
+		{"stack", format_stack},
+		{"queue", format_queue},
 		{"push", push_stack},
 		{"pall", pall_stack},
 		{"pint", pint_stack},
@@ -38,7 +40,6 @@ void get_opcode(stack_t **head, char *monty_command, unsigned int line_number)
 	}
 	if (command[i].opcode == NULL)
 	{
-
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, monty_command);
 		free_all(head, vars.buffer, vars.fd);
 		exit(EXIT_FAILURE);
