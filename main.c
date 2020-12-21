@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
 	vars.buffer = NULL;
 	vars.fd = NULL;
-	vars.format = NULL;
+	vars.format = "stack";
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
