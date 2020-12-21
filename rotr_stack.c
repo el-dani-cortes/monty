@@ -12,7 +12,7 @@ void rotr_stack(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	tmp = *stack;
-	if (*stack)
+	if (*stack && (*stack)->next != NULL)
 	{
 		while (tmp->next)
 			tmp = tmp->next;
