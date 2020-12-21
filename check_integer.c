@@ -12,7 +12,7 @@ int check_integer(stack_t **head, char *value, unsigned int line_number)
 	int data, i;
 
 	data = atoi(value);
-	if (data == 0 && *value != '0')
+	if (data == 0 && *value != '0' && value[0] != '-')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_all(head, vars.buffer, vars.fd);
