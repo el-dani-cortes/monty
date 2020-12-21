@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 
 	vars.buffer = NULL;
 	vars.fd = NULL;
+	vars.format = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -35,7 +36,9 @@ int main(int argc, char **argv)
 		monty_command = strtok(buffer, " ");
 		if (monty_command != NULL && strcmp(monty_command, "nop") != 0
 		    && monty_command[0] != '#')
+		{
 			get_opcode(&head, monty_command, line_number);
+		}
 		line_number++;
 	}
 	free(buffer);
