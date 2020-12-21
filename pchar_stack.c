@@ -22,7 +22,7 @@ void pchar_stack(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		free_all(stack, vars.buffer, vars.fd);
 		exit(EXIT_FAILURE);
 	}
