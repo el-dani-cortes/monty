@@ -13,6 +13,12 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	int data;
 
 	value = strtok(NULL, " ");
+	if (value == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_all(stack, vars.buffer, vars.fd);
+		exit(EXIT_FAILURE);
+	}
 	data =  check_integer(stack, value, line_number);
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
