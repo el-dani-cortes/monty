@@ -21,6 +21,7 @@ void get_opcode(stack_t **head, char *monty_command, unsigned int line_number)
 		{"mul", mul_stack},
 		{"div", div_stack},
 		{"mod", mod_stack},
+		{"pchar", pchar_stack},
 		{NULL, NULL}
 	};
 
@@ -34,7 +35,9 @@ void get_opcode(stack_t **head, char *monty_command, unsigned int line_number)
 	}
 	if (command[i].opcode == NULL)
 	{
+
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, monty_command);
+		free_all(head, vars.buffer, vars.fd);
 		exit(EXIT_FAILURE);
 	}
 }
