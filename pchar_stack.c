@@ -10,11 +10,11 @@ void pchar_stack(stack_t **stack, unsigned int line_number)
 {
 	if (*stack && stack)
 	{
-		if ((*stack)->n > 0 && (*stack)->n <= 127)
+		if ((*stack)->n >= 0 && (*stack)->n <= 127)
 			printf("%c\n", (*stack)->n);
 		else
 		{
-			fprintf(stderr, "L%d: can't pchar, value out of range",
+			fprintf(stderr, "L%d: can't pchar, value out of range\n",
 				line_number);
 			free_all(stack, vars.buffer, vars.fd);
 			exit(EXIT_FAILURE);
