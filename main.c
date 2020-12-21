@@ -11,28 +11,35 @@ int main(int argc, char **argv)
 	char *buffer = NULL, *monty_command = NULL;
 	unsigned int line_number = 1;
 	stack_t *head = NULL;
-	FILE *fp;
+	FILE *fd;
 	size_t len;
 
+	vars.buffer = NULL;
+	vars.fd = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	fp = fopen(argv[1], "r");
-	if (!fp)
+	fd = fopen(argv[1], "r");
+	if (!fd)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&buffer, &len, fp) != -1)
+	vars.fd = fd;
+	while (getline(&buffer, &len, fd) != -1)
 	{
 		buffer[strlen(buffer) - 1] = '\0';
+		vars.buffer = buffer;
 		monty_command = strtok(buffer, " ");
-		if (monty_command != NULL && strcmp(monty_command, "nop") != 0)
+		if (monty_command != NULL && strcmp(monty_command, "nop") != 0
+		    && monty_command[0] != '#')
 			get_opcode(&head, monty_command, line_number);
 		line_number++;
 	}
-	fclose(fp);
+	free(buffer);
+	free_stack(&head);
+	fclose(fd);
 	return (0);
 }
