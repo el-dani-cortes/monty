@@ -42,7 +42,7 @@ typedef struct instruction_s
 void get_opcode(stack_t **head, char *monty_command, unsigned int line_number);
 
 /*Check if is a integer and convert it*/
-int check_integer(char *value, unsigned int line_number);
+int check_integer(stack_t **head, char *value, unsigned int line_number);
 
 /*Add a node into the top of the stack*/
 void push_stack(stack_t **stack, unsigned int line_number);
@@ -76,5 +76,31 @@ void div_stack(stack_t **stack, unsigned int line_number);
 
 /*Computes the rest of the division of top two data value on stack*/
 void mod_stack(stack_t **stack, unsigned int line_number);
+
+/*Function that frees a double linked list (stack)*/
+void free_stack(stack_t **head);
+
+/*Function that frees all when a error occurs*/
+void free_all(stack_t **head, char *buffer, FILE *fd);
+
+/*Prints the char at the top of the stack*/
+void pchar_stack(stack_t **stack, unsigned int line_number);
+
+/**
+ * struct variable_s - Variables to free the stack when a error happen.
+ * @buffer: Buffer save with the get.
+ * @fd: FILE pointer to close the file open.
+ *
+ * Description: Variables need to free the stack when a error happens.
+ */
+typedef struct variable_s
+{
+	char *buffer;
+	FILE *fd;
+} variable_t;
+
+/*Global variable*/
+extern variable_t vars;
+variable_t vars;
 
 #endif /*_FILE_H_*/
