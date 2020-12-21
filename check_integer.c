@@ -14,16 +14,16 @@ int check_integer(stack_t **head, char *value, unsigned int line_number)
 	data = atoi(value);
 	if (data == 0 && *value != '0')
 	{
-		free_all(head, vars.buffer, vars.fd);
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_all(head, vars.buffer, vars.fd);
 		exit(EXIT_FAILURE);
 	}
 	for (i = 0; value[i] != '\0'; i++)
 	{
 		if ((value[i] < '0' || value[i] > '9') && value[i] != '-')
 		{
-			free_all(head, vars.buffer, vars.fd);
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free_all(head, vars.buffer, vars.fd);
 			exit(EXIT_FAILURE);
 		}
 	}
