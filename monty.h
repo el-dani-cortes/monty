@@ -89,6 +89,9 @@ void pchar_stack(stack_t **stack, unsigned int line_number);
 /*Prints the string starting at the top of the stack*/
 void pstr_stack(stack_t **stack, unsigned int line_number);
 
+/*Rotates the stack to the top*/
+void rotl_stack(stack_t **stack, unsigned int line_number);
+
 /**
  * struct variable_s - Variables to free the stack when a error happen.
  * @buffer: Buffer save with the get.
