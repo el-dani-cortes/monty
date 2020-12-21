@@ -3,6 +3,7 @@
  * check_integer - Check is a integer and convert to it.
  * @value: String to convert and validate.
  * @line_number: Line number read from bytecode file.
+ * @head: Pointer head to the double linked list (stack).
  *
  * Return: Always nothing.
  */
