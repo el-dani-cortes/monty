@@ -779,3 +779,6 @@ julien@ubuntu:~/brainfuck$
 49
 julien@ubuntu:~/brainfuck$ 
 </code></pre>
+
+## Authors
+* **Daniel Cortes** [LinkedIn](https://www.linkedin.com/in/danielcortessully/)
